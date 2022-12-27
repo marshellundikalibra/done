@@ -47,15 +47,15 @@ from .serializers import *
 from rest_framework.pagination import PageNumberPagination
 
 
-class MyPaginationClass(PageNumberPagination):
-    page_size=5
-    def get_paginated_response(self, data):
-        # print(data[0])
-        for i in range(self.page.size):
-            text=data[i]['text']
-            data[i]['text']=text[:10]+'....'
-            # print(data[1]['text'])
-        return super().get_paginated_response(data)
+# class MyPaginationClass(PageNumberPagination):
+#     page_size=1
+#     def get_paginated_response(self, data):
+#         # print(data[0])
+#         for i in range(self.page.size):
+#             text=data[i]['text']
+#             data[i]['text']=text[:10]+'....'
+#             # print(data[1]['text'])
+#         return super().get_paginated_response(data)
 
 class PermissionMixin:
     def get_permissions(self):#метод он встроенный
@@ -74,7 +74,7 @@ class CategoryListView(generics.ListAPIView):#setting urls
     queryset=Category.objects.all()
     serializer_class=CategorySerializer
     permission_classes=[AllowAny, ]
-    pagination_class = MyPaginationClass
+    # pagination_class = MyPaginationClass
 
 
 
@@ -105,7 +105,7 @@ class ProductViewSet(viewsets.ModelViewSet):
     queryset=Product.objects.all()
     serializer_class=ProductSerializer
     permission_classes=[AllowAny, ]
-    pagination_class=MyPaginationClass
+    # pagination_class=MyPaginationClass
 
 
     def get_serializer_context(self):

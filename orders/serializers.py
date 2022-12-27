@@ -1,3 +1,4 @@
+
 from rest_framework import serializers
 
 from .models import Order, OrderItems
@@ -34,8 +35,8 @@ class OrderItemserializer(serializers.ModelSerializer):
         
 
 
-#post -> 'create'
-#get -> 'list', 'retrieve'
-#put -> 'update'
-#patch -> 'partial_update'
-#delete -> 'destroy'
+# #post -> 'create'
+# #get -> 'list', 'retrieve'
+# #put -> 'update'
+# #patch -> 'partial_update'
+# #delete -> 'destroy'

@@ -15,7 +15,7 @@ class CategorySerializer(serializers.ModelSerializer):
 class ProductSerializer(serializers.ModelSerializer):
     class Meta:
         model = Product
-        fields = ('id',  'title', 'description','category', 'price', 'discount_price', 'color', 'label','quantity', 'create_at')
+        fields = ('id',  'title', 'description','category', 'price', 'discount_price', 'color', 'label','quantity', 'created_at')
 
     def to_representation(self, instance):
         print(instance)
@@ -28,7 +28,7 @@ class ProductSerializer(serializers.ModelSerializer):
 
         rates = Rating.objects.filter(product=instance)
         if not rates:
-            representation['rating'] = 'null'
+            representation['rating'] = 0
         else:
             sum = 0
             for i in rates:
@@ -64,9 +64,6 @@ class ProductImageSerializer(serializers.ModelSerializer):
         representation=super().to_representation(instance)
         representation['image']=self._get_image_url(instance)
         return representation
-        '================================================================' 
-'=========================================================================='
-
 
 class CommentSerializer(serializers.ModelSerializer):
     author = serializers.ReadOnlyField(source='author.email')

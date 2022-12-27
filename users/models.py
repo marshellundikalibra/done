@@ -118,14 +118,7 @@ class MyUser(AbstractUser):
 
     def __str__(self) -> str:
         return f'{self.username} -> {self.email}'
-    
-    # def tokens(self):
-    #     refresh = RefreshToken.for_user(self)
-    #     return {
-    #         'refresh': str(refresh),
-    #         'access': str(refresh.access_token)
-    #     }
-    
+
     # def send_notification(self, id):
     #     activation_url = f'https://tektonik.herokuapp.com/user_account/password_confirm/{self.activation_code}'
     #     message=f"""

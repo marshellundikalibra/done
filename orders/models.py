@@ -1,4 +1,7 @@
 
+
+
+
 from django.db import models
 from users.models import MyUser
 from product.models import Product

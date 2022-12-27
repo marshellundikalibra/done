@@ -4,6 +4,7 @@ from .views import CreateLikeAPIView
 
 urlpatterns = [
     path('likefilms/', CreateLikeAPIView.as_view()),
+    
 ]
 # urlpatterns=[
 #     # path('categories/', views.categories, name='categories-list'),
